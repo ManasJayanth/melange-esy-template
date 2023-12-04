@@ -7,7 +7,7 @@ const packageJson = require("./package.json");
 async function copy(src, dest) {
   console.log("cp", "-R", src, dest);
   await fs.mkdir(path.dirname(dest), { recursive: true });
-  await fs.cp(src, dest, { recursive: true });
+  await fs.symlink(src, dest);
 }
 
 function getNode(lockFile, id) {
