@@ -23,13 +23,13 @@ jobs:
         with:
           # The entire ~/.esy directory has to be cached because esy's
           # import/export commands don't import/export the Melange JS runtime
-          # files
+          # files.
           path: ~/.esy
           key: ${{ matrix.system }}-esy-${{ hashFiles('esy.lock/index.json') }}
           restore-keys: |
             ${{ matrix.system }}-esy-
-      - name: npm install -g @esy-nightly/esy
-        run: Install esy
+      - name: Install esy
+        run: npm install -g @esy-nightly/esy
       # Separating the esy steps provides more fine-grained insight when
       # debugging failed jobs
       - name: esy install
