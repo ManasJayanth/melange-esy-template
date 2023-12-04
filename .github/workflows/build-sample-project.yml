@@ -28,15 +28,15 @@ jobs:
           key: ${{ matrix.system }}-esy-${{ hashFiles('esy.lock/index.json') }}
           restore-keys: |
             ${{ matrix.system }}-esy-
-      - name: npm install
-        run: npm install
+      - name: npm install -g @esy-nightly/esy
+        run: Install esy
       # Separating the esy steps provides more fine-grained insight when
       # debugging failed jobs
       - name: esy install
-        run: npx esy install
+        run:  esy install
       - name: Build esy dependencies
-        run: npx esy build-dependencies --release
+        run:  esy build-dependencies --release
       - name: Build project
-        run: npx esy build --release
+        run:  esy build --release
       - name: Bundle JS app
-        run: npm run bundle
+        run: esy run-script bundle
