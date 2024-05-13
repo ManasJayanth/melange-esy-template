@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build:watch": "dune build @react @node -w",
-    "bundle": "env NODE_PATH=#{self.root}/node_modules webpack --mode production --entry #{self.root}/_build/default/src/output/src/ReactApp.js",
+    "bundle": "webpack --mode production --entry #{self.root}/_build/default/src/output/src/ReactApp.js",
     "serve": "webpack serve --open --mode development --entry #{self.root}/_build/default/src/output/src/ReactApp.js"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "@opam/dune": ">= 3.8.0",
     "@opam/ocamlfind": "1.9.6",
     "@opam/reason": "*",
-    "@opam/melange": "2.0.0",
+    "@opam/melange": "2.2.0",
     "@opam/reason-react": "*",
     "@opam/reason-react-ppx": "*",
     "react": "^18.2.0",
